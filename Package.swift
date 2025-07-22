@@ -1,4 +1,4 @@
-// swift-tools-version: 6.1
+// swift-tools-version: 5.9.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -19,7 +19,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "601.0.0-latest"),
+        .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "590.0.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -38,14 +38,5 @@ let package = Package(
 
         // A client of the library, which is able to use the macro in its own code.
         .executableTarget(name: "MyMacroClient", dependencies: ["MyMacro"]),
-
-        // A test target used to develop the macro implementation.
-        .testTarget(
-            name: "MyMacroTests",
-            dependencies: [
-                "MyMacroMacros",
-                .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
-            ]
-        ),
     ]
 )
