@@ -1,0 +1,2 @@
+# MyMacro
+SPM Macro Test
