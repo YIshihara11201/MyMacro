@@ -12,11 +12,7 @@ let package = Package(
         .library(
             name: "MyMacro",
             targets: ["MyMacro"]
-        ),
-        .executable(
-            name: "MyMacroClient",
-            targets: ["MyMacroClient"]
-        ),
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "509.0.0"),
@@ -35,8 +31,5 @@ let package = Package(
 
         // Library that exposes a macro as part of its API, which is used in client programs.
         .target(name: "MyMacro", dependencies: ["MyMacroMacros"]),
-
-        // A client of the library, which is able to use the macro in its own code.
-        .executableTarget(name: "MyMacroClient", dependencies: ["MyMacro"]),
     ]
 )
